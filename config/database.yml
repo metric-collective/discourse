@@ -5,12 +5,15 @@ development:
   min_messages: warning
   pool: 5
   timeout: 5000
+  username: usr
+  password: pwd
+  host: discourse-psql-db-<%= ENV['TOPOLOGY_LEVEL'] %>
   host_names:
     ### Don't include the port number here. Change the "port" site setting instead, at /admin/site_settings.
     ### If you change this setting you will need to
     ###   - restart sidekiq if you change this setting
     ###   - rebake all to posts using: `RAILS_ENV=production bundle exec rake posts:rebake`
-    - "localhost"
+    - discourse-psql-db-<%= ENV['TOPOLOGY_LEVEL'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
