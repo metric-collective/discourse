@@ -17,13 +17,13 @@ listen (ENV["UNICORN_PORT"] || 3000).to_i
 timeout 30
 
 # feel free to point this anywhere accessible on the filesystem
-pid "#{discourse_path}/tmp/pids/unicorn.pid"
+pid "/tmp/unicorn.pid"
 
 # By default, the Unicorn logger will write to stderr.
 # Additionally, some applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path "#{discourse_path}/log/unicorn.stderr.log"
-stdout_path "#{discourse_path}/log/unicorn.stdout.log"
+# stderr_path "/tmp/log/unicorn.stderr.log"
+# stdout_path "/tmp/log/unicorn.stdout.log"
 
 # important for Ruby 2.0
 preload_app true
